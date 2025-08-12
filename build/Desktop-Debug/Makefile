@@ -94,7 +94,8 @@ SOURCES       = ../../Message.cpp \
 		../../segmentplan.cpp \
 		../../sequentialidprovider.cpp \
 		../../sessionrequesthandler.cpp \
-		../../stophandler.cpp moc_TcpServer.cpp \
+		../../stophandler.cpp \
+		../../toytelemetry.cpp moc_TcpServer.cpp \
 		moc_ac.cpp \
 		moc_acstatehandler.cpp \
 		moc_celhandler.cpp \
@@ -112,7 +113,8 @@ SOURCES       = ../../Message.cpp \
 		moc_planfactory.cpp \
 		moc_reportstatechecker.cpp \
 		moc_sessionrequesthandler.cpp \
-		moc_stophandler.cpp
+		moc_stophandler.cpp \
+		moc_toytelemetry.cpp
 OBJECTS       = Message.o \
 		TcpServer.o \
 		ac.o \
@@ -156,6 +158,7 @@ OBJECTS       = Message.o \
 		sequentialidprovider.o \
 		sessionrequesthandler.o \
 		stophandler.o \
+		toytelemetry.o \
 		moc_TcpServer.o \
 		moc_ac.o \
 		moc_acstatehandler.o \
@@ -174,7 +177,8 @@ OBJECTS       = Message.o \
 		moc_planfactory.o \
 		moc_reportstatechecker.o \
 		moc_sessionrequesthandler.o \
-		moc_stophandler.o
+		moc_stophandler.o \
+		moc_toytelemetry.o
 DIST          = ../../autostart.sh \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt6/mkspecs/common/unix.conf \
@@ -304,7 +308,8 @@ DIST          = ../../autostart.sh \
 		../../segmentplan.h \
 		../../sequentialidprovider.h \
 		../../sessionrequesthandler.h \
-		../../stophandler.h ../../Message.cpp \
+		../../stophandler.h \
+		../../toytelemetry.h ../../Message.cpp \
 		../../TcpServer.cpp \
 		../../ac.cpp \
 		../../acstatehandler.cpp \
@@ -346,7 +351,8 @@ DIST          = ../../autostart.sh \
 		../../segmentplan.cpp \
 		../../sequentialidprovider.cpp \
 		../../sessionrequesthandler.cpp \
-		../../stophandler.cpp
+		../../stophandler.cpp \
+		../../toytelemetry.cpp
 QMAKE_TARGET  = AC_GUI
 DESTDIR       = 
 TARGET        = AC_GUI
@@ -528,8 +534,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Message.h ../../TcpServer.h ../../ac.h ../../acstatehandler.h ../../apd/apd.h ../../celhandler.h ../../cellstorage.h ../../datachanel.h ../../datachanelnoptr.h ../../dataserver.h ../../devices/devicefactory.h ../../devices/deviceinterface.h ../../devices/deviceinterfaceuser.h ../../devices/devicelib/devicemanager.h ../../devices/devicelib/devicemodel.h ../../devices/devicelib/telemetrycollector.h ../../devices/devicelib/telemetrypoller.h ../../devices/devicelib/telemetrytypes.h ../../devices/doslib/dos.h ../../devices/doslib/dosbeamformer.h ../../devices/doslib/doscalgen.h ../../devices/doslib/dosregmap.h ../../devices/pcolib/pcoacqu.h ../../devices/pcolib/pcoapi.h ../../devices/pcolib/pcobeamformer.h ../../devices/pcolib/pcocalrec.h ../../devices/pcolib/pcodds.h ../../devices/pcolib/pcoregmap.h ../../devices/pcolib/pcosync.h ../../fpm/fixed.hpp ../../fpm/ios.hpp ../../fpm/math.hpp ../../logger.h ../../logmessage.h ../../mainwindow.h ../../math/antmodel.h ../../math/matrix.h ../../messagebroker.h ../../messagehandler.h ../../messageprocessor.h ../../modbus/genlib/fpn16.h ../../modbus/genlib/generic.h ../../modbus/genlib/modbus_layout.h ../../modbus/genlib/regmap.h ../../modbus/genlib/rf_constants.h ../../modbus/genlib/types.h ../../modbus/modbus_literals.h ../../modbus/modbusdevice.h ../../p2sockethandler.h ../../packet.h ../../planfactory.h ../../planstorage.h ../../reportstatechecker.h ../../sector.h ../../sectorplan.h ../../segmentplan.h ../../sequentialidprovider.h ../../sessionrequesthandler.h ../../stophandler.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Message.cpp ../../TcpServer.cpp ../../ac.cpp ../../acstatehandler.cpp ../../apd/apd.cpp ../../celhandler.cpp ../../cellstorage.cpp ../../datachanel.cpp ../../datachanelnoptr.cpp ../../dataserver.cpp ../../devices/devicefactory.cpp ../../devices/deviceinterface.cpp ../../devices/devicelib/devicemanager.cpp ../../devices/devicelib/telemetrypoller.cpp ../../devices/doslib/dos.cpp ../../devices/doslib/dosbeamformer.cpp ../../devices/doslib/doscalgen.cpp ../../devices/pcolib/pcoacqu.cpp ../../devices/pcolib/pcoapi.cpp ../../devices/pcolib/pcobeamformer.cpp ../../devices/pcolib/pcocalrec.cpp ../../devices/pcolib/pcodds.cpp ../../devices/pcolib/pcosync.cpp ../../logger.cpp ../../logmessage.cpp ../../main.cpp ../../mainwindow.cpp ../../math/antmodel.cpp ../../messagehandler.cpp ../../messageprocessor.cpp ../../modbus/genlib/fpn16.cpp ../../modbus/modbusdevice.cpp ../../p2sockethandler.cpp ../../packet.cpp ../../planfactory.cpp ../../planstorage.cpp ../../reportstatechecker.cpp ../../sector.cpp ../../sectorplan.cpp ../../segmentplan.cpp ../../sequentialidprovider.cpp ../../sessionrequesthandler.cpp ../../stophandler.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Message.h ../../TcpServer.h ../../ac.h ../../acstatehandler.h ../../apd/apd.h ../../celhandler.h ../../cellstorage.h ../../datachanel.h ../../datachanelnoptr.h ../../dataserver.h ../../devices/devicefactory.h ../../devices/deviceinterface.h ../../devices/deviceinterfaceuser.h ../../devices/devicelib/devicemanager.h ../../devices/devicelib/devicemodel.h ../../devices/devicelib/telemetrycollector.h ../../devices/devicelib/telemetrypoller.h ../../devices/devicelib/telemetrytypes.h ../../devices/doslib/dos.h ../../devices/doslib/dosbeamformer.h ../../devices/doslib/doscalgen.h ../../devices/doslib/dosregmap.h ../../devices/pcolib/pcoacqu.h ../../devices/pcolib/pcoapi.h ../../devices/pcolib/pcobeamformer.h ../../devices/pcolib/pcocalrec.h ../../devices/pcolib/pcodds.h ../../devices/pcolib/pcoregmap.h ../../devices/pcolib/pcosync.h ../../fpm/fixed.hpp ../../fpm/ios.hpp ../../fpm/math.hpp ../../logger.h ../../logmessage.h ../../mainwindow.h ../../math/antmodel.h ../../math/matrix.h ../../messagebroker.h ../../messagehandler.h ../../messageprocessor.h ../../modbus/genlib/fpn16.h ../../modbus/genlib/generic.h ../../modbus/genlib/modbus_layout.h ../../modbus/genlib/regmap.h ../../modbus/genlib/rf_constants.h ../../modbus/genlib/types.h ../../modbus/modbus_literals.h ../../modbus/modbusdevice.h ../../p2sockethandler.h ../../packet.h ../../planfactory.h ../../planstorage.h ../../reportstatechecker.h ../../sector.h ../../sectorplan.h ../../segmentplan.h ../../sequentialidprovider.h ../../sessionrequesthandler.h ../../stophandler.h ../../toytelemetry.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Message.cpp ../../TcpServer.cpp ../../ac.cpp ../../acstatehandler.cpp ../../apd/apd.cpp ../../celhandler.cpp ../../cellstorage.cpp ../../datachanel.cpp ../../datachanelnoptr.cpp ../../dataserver.cpp ../../devices/devicefactory.cpp ../../devices/deviceinterface.cpp ../../devices/devicelib/devicemanager.cpp ../../devices/devicelib/telemetrypoller.cpp ../../devices/doslib/dos.cpp ../../devices/doslib/dosbeamformer.cpp ../../devices/doslib/doscalgen.cpp ../../devices/pcolib/pcoacqu.cpp ../../devices/pcolib/pcoapi.cpp ../../devices/pcolib/pcobeamformer.cpp ../../devices/pcolib/pcocalrec.cpp ../../devices/pcolib/pcodds.cpp ../../devices/pcolib/pcosync.cpp ../../logger.cpp ../../logmessage.cpp ../../main.cpp ../../mainwindow.cpp ../../math/antmodel.cpp ../../messagehandler.cpp ../../messageprocessor.cpp ../../modbus/genlib/fpn16.cpp ../../modbus/modbusdevice.cpp ../../p2sockethandler.cpp ../../packet.cpp ../../planfactory.cpp ../../planstorage.cpp ../../reportstatechecker.cpp ../../sector.cpp ../../sectorplan.cpp ../../segmentplan.cpp ../../sequentialidprovider.cpp ../../sessionrequesthandler.cpp ../../stophandler.cpp ../../toytelemetry.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -562,9 +568,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp
 	clang++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt6/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_TcpServer.cpp moc_ac.cpp moc_acstatehandler.cpp moc_celhandler.cpp moc_cellstorage.cpp moc_dataserver.cpp moc_deviceinterface.cpp moc_telemetrypoller.cpp moc_logger.cpp moc_mainwindow.cpp moc_messagebroker.cpp moc_messagehandler.cpp moc_messageprocessor.cpp moc_modbusdevice.cpp moc_p2sockethandler.cpp moc_planfactory.cpp moc_reportstatechecker.cpp moc_sessionrequesthandler.cpp moc_stophandler.cpp
+compiler_moc_header_make_all: moc_TcpServer.cpp moc_ac.cpp moc_acstatehandler.cpp moc_celhandler.cpp moc_cellstorage.cpp moc_dataserver.cpp moc_deviceinterface.cpp moc_telemetrypoller.cpp moc_logger.cpp moc_mainwindow.cpp moc_messagebroker.cpp moc_messagehandler.cpp moc_messageprocessor.cpp moc_modbusdevice.cpp moc_p2sockethandler.cpp moc_planfactory.cpp moc_reportstatechecker.cpp moc_sessionrequesthandler.cpp moc_stophandler.cpp moc_toytelemetry.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_TcpServer.cpp moc_ac.cpp moc_acstatehandler.cpp moc_celhandler.cpp moc_cellstorage.cpp moc_dataserver.cpp moc_deviceinterface.cpp moc_telemetrypoller.cpp moc_logger.cpp moc_mainwindow.cpp moc_messagebroker.cpp moc_messagehandler.cpp moc_messageprocessor.cpp moc_modbusdevice.cpp moc_p2sockethandler.cpp moc_planfactory.cpp moc_reportstatechecker.cpp moc_sessionrequesthandler.cpp moc_stophandler.cpp
+	-$(DEL_FILE) moc_TcpServer.cpp moc_ac.cpp moc_acstatehandler.cpp moc_celhandler.cpp moc_cellstorage.cpp moc_dataserver.cpp moc_deviceinterface.cpp moc_telemetrypoller.cpp moc_logger.cpp moc_mainwindow.cpp moc_messagebroker.cpp moc_messagehandler.cpp moc_messageprocessor.cpp moc_modbusdevice.cpp moc_p2sockethandler.cpp moc_planfactory.cpp moc_reportstatechecker.cpp moc_sessionrequesthandler.cpp moc_stophandler.cpp moc_toytelemetry.cpp
 moc_TcpServer.cpp: ../../TcpServer.h \
 		../../ac.h \
 		../../Message.h \
@@ -753,6 +759,7 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../dataserver.h \
 		../../cellstorage.h \
 		../../p2sockethandler.h \
+		../../toytelemetry.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/andrew/work/AC_GUI/build/Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang -I/home/andrew/work/AC_GUI -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtSerialBus -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtSerialPort -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/llvm-18/lib/clang/18/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
@@ -869,6 +876,11 @@ moc_stophandler.cpp: ../../stophandler.h \
 		moc_predefs.h \
 		/usr/lib/qt6/libexec/moc
 	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/andrew/work/AC_GUI/build/Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang -I/home/andrew/work/AC_GUI -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtSerialBus -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtSerialPort -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/llvm-18/lib/clang/18/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../stophandler.h -o moc_stophandler.cpp
+
+moc_toytelemetry.cpp: ../../toytelemetry.h \
+		moc_predefs.h \
+		/usr/lib/qt6/libexec/moc
+	/usr/lib/qt6/libexec/moc $(DEFINES) --include /home/andrew/work/AC_GUI/build/Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt6/mkspecs/linux-clang -I/home/andrew/work/AC_GUI -I/usr/include/x86_64-linux-gnu/qt6 -I/usr/include/x86_64-linux-gnu/qt6/QtWidgets -I/usr/include/x86_64-linux-gnu/qt6/QtGui -I/usr/include/x86_64-linux-gnu/qt6/QtSerialBus -I/usr/include/x86_64-linux-gnu/qt6/QtNetwork -I/usr/include/x86_64-linux-gnu/qt6/QtSerialPort -I/usr/include/x86_64-linux-gnu/qt6/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/llvm-18/lib/clang/18/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../toytelemetry.h -o moc_toytelemetry.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1272,6 +1284,7 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		../../dataserver.h \
 		../../cellstorage.h \
 		../../p2sockethandler.h \
+		../../toytelemetry.h \
 		../../logger.h \
 		../../logmessage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -1325,6 +1338,7 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../dataserver.h \
 		../../cellstorage.h \
 		../../p2sockethandler.h \
+		../../toytelemetry.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
@@ -1456,6 +1470,9 @@ stophandler.o: ../../stophandler.cpp ../../stophandler.h \
 		../../packet.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o stophandler.o ../../stophandler.cpp
 
+toytelemetry.o: ../../toytelemetry.cpp ../../toytelemetry.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toytelemetry.o ../../toytelemetry.cpp
+
 moc_TcpServer.o: moc_TcpServer.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_TcpServer.o moc_TcpServer.cpp
 
@@ -1512,6 +1529,9 @@ moc_sessionrequesthandler.o: moc_sessionrequesthandler.cpp
 
 moc_stophandler.o: moc_stophandler.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_stophandler.o moc_stophandler.cpp
+
+moc_toytelemetry.o: moc_toytelemetry.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_toytelemetry.o moc_toytelemetry.cpp
 
 ####### Install
 

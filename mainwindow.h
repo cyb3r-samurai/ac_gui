@@ -13,6 +13,7 @@
 #include "reportstatechecker.h"
 #include "dataserver.h"
 #include "planstorage.h"
+#include "toytelemetry.h"
 
 #include <memory>
 
@@ -33,6 +34,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void onTelemetryRecieved(const std::vector<sector_telemetry>&);
+    void onStartingDeviceStatesRecieved(const std::vector<DOS>&);
+    void onDeviceStateChanged(const device&);
+
 protected:
     void closeEvent(QCloseEvent* event) override;
 
@@ -40,6 +46,8 @@ private:
     Ui::MainWindow *ui;
 
     std::shared_ptr<PlanStorage> m_planStoragePtr;
+
+    ToyTelemetry m_toyTelemetry;
 
     AC* m_ac;
     MessageProcessor *m_messageProcessor;

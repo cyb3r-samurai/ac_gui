@@ -5,9 +5,15 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
+    connect(&m_toyTelemetry, &ToyTelemetry::telemetryRecieved, this, &MainWindow::onTelemetryRecieved);
+    connect(&m_toyTelemetry, &ToyTelemetry::startingDeviceStatesRecieved, this,&MainWindow::onStartingDeviceStatesRecieved);
+    connect(&m_toyTelemetry, &ToyTelemetry::deviceStateChanged, this, &MainWindow::onDeviceStateChanged);
+
+    m_toyTelemetry.startPolling(5); // 50 % to crash device
+
     initObjects();
     startThreads();
-
     ui->setupUi(this);
 }
 
@@ -15,6 +21,34 @@ MainWindow::~MainWindow()
 {
     delete ui;
     close();
+}
+
+void MainWindow::onTelemetryRecieved(const std::vector<sector_telemetry> &)
+{
+
+    // code goes here
+
+
+    qDebug() << "telemetry recieved";
+
+
+}
+
+void MainWindow::onStartingDeviceStatesRecieved(const std::vector<DOS> &)
+{
+    //code goes here
+
+    qDebug() << "starting device state recieved";
+
+
+}
+
+void MainWindow::onDeviceStateChanged(const device & dev)
+{
+    //code goes here
+    qDebug() << "device state changed" << dev.ident_.sector_  << dev.ident_.unitid_  << dev.state_;
+
+
 }
 
 void MainWindow::startThreads()
@@ -150,6 +184,7 @@ void MainWindow::closeEvent(QCloseEvent* event) {
         m_reportStateChecker->deleteLater();
     }
 
+    m_toyTelemetry.stop();
 
     QMainWindow::closeEvent(event);
 }

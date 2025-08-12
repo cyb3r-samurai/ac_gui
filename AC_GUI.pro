@@ -52,7 +52,8 @@ SOURCES += \
     segmentplan.cpp \
     sequentialidprovider.cpp \
     sessionrequesthandler.cpp \
-    stophandler.cpp
+    stophandler.cpp \
+    toytelemetry.cpp
 
 HEADERS += \
     Message.h \
@@ -113,7 +114,8 @@ HEADERS += \
     segmentplan.h \
     sequentialidprovider.h \
     sessionrequesthandler.h \
-    stophandler.h
+    stophandler.h \
+    toytelemetry.h
 
 FORMS += \
     mainwindow.ui
